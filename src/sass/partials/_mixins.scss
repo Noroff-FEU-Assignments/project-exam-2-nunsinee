@@ -1,0 +1,35 @@
+@mixin nav__gradient {
+	background: linear-gradient(
+		rgba(getColour(nav-colour), 0.6),
+		shade-color(getColour(nav-colour), 0.5)
+	);
+}
+
+@mixin nav__admin--gradient {
+	background: linear-gradient(
+		shade-color(getColour(bright-grey), 0.9),
+		rgba(getColour(bright-grey), 0.5)
+	);
+}
+
+@mixin footer__gradient {
+	background: linear-gradient(
+		rgba(getColour(nav-colour), 0.5),
+		shade-color(getColour(bright-grey), 10%)
+	);
+}
+
+@mixin card__gradient {
+	background: linear-gradient(
+		180deg,
+		(getColour(bright-grey), 0.1),
+		(var(--bs-white), 0.1)
+	);
+}
+
+@mixin text__bg--gradient {
+	background: linear-gradient(
+		rgba(getColour(nav-colour), 0.2),
+		shade-color(getColour(bright-grey), 0.3)
+	);
+}

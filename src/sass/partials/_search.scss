@@ -1,0 +1,10 @@
+.search {
+	position: relative;
+	&__input {
+		box-shadow: none;
+	}
+	&__input:focus {
+		box-shadow: none;
+		border: 2px solid getColour(queen-blue);
+	}
+}

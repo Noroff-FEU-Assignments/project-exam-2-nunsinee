@@ -1,0 +1,32 @@
+.slider__card {
+	margin: 0.5em;
+}
+
+.card {
+	@include card__gradient;
+	box-shadow: $boxShadow;
+	margin-bottom: 2em;
+	border: none;
+
+	&__featuredhotel {
+		border: none !important;
+	}
+}
+
+.card-img-top {
+	height: 180px;
+	object-fit: cover;
+
+	&__featuredhotel {
+		max-height: 250px;
+		filter: drop-shadow(0 0 0.1rem var(--bs-black));
+	}
+}
+
+.card-text {
+	margin-top: 0.5em;
+	color: getColour(queen-blue);
+	text-align: center;
+	font-family: $heading-font-family;
+	font-size: 1rem;
+}

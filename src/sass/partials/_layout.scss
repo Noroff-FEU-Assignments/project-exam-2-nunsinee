@@ -1,0 +1,114 @@
+* {
+	box-sizing: border-box;
+}
+
+#root {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	font-family: "Archivo", sans-serif;
+	font-size: 1rem;
+	margin: 0;
+}
+
+body {
+	font-family: "Roboto", sans-serif;
+	display: flex;
+	flex-direction: column;
+}
+
+.wrapper {
+	flex: 1 0 auto;
+}
+
+.container {
+	margin: 0 auto;
+	max-width: 1100px;
+
+	&__content {
+		margin: 2em auto;
+	}
+
+	&__form {
+		margin: 4em auto;
+	}
+}
+
+.spinner__container {
+	text-align: center;
+}
+
+.image__container {
+	display: flex;
+	margin-bottom: 2em;
+}
+
+.message__container {
+	@include text__bg--gradient;
+	display: flex;
+	flex-direction: column;
+	justify-content: left;
+	margin-bottom: 2em;
+	padding-top: 2em;
+	border-radius: $border-radius;
+}
+
+//Image
+
+.image {
+	width: 100%;
+	border-radius: $border-radius;
+
+	&__featuredImage,
+	&__roomImage {
+		object-fit: none;
+		height: 300px;
+		overflow: hidden;
+	}
+
+	&__featuredImage {
+		margin-bottom: 2em;
+		box-shadow: $shadowImage;
+	}
+
+	&__roomImage {
+		margin-bottom: 2em;
+	}
+
+	&__contact {
+		max-height: 300px;
+		margin-bottom: 3em;
+		@media (max-width: $tablet) {
+			margin-bottom: 2em;
+		}
+	}
+}
+
+.contact__logo {
+	max-height: 80px;
+}
+
+.admin__logo {
+	max-height: 180px;
+}
+
+.icon {
+	font-size: 1.5rem;
+	margin-right: 0.5em;
+}
+
+footer {
+	@include footer__gradient;
+	display: flex;
+	flex-shrink: 0;
+	justify-content: center;
+	text-align: center;
+	font-size: 0.8rem;
+	padding: 0.75em;
+}

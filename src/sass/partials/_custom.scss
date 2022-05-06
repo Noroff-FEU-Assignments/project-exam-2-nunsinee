@@ -1,0 +1,51 @@
+:root {
+	--bs-dark-rgb: #d4d6da;
+	--bs-blue: #3f61a6;
+	--bs-indigo: #1f4373;
+	--bs-red: #f50e16;
+	--bs-yellow: #f2ea79;
+	--bs-black: #000000;
+	--bs-white: #ffffff;
+	--bs-body-font-family: "Archivo", sans-serif;
+}
+
+//Typography
+$heading-font-family: "Tenor Sans", sans-serif;
+$font-family-base: "Archivo", sans-serif;
+
+//Webresponsive elements
+$mobile: 576px;
+$tablet: 768px;
+$desktop: 992px;
+$large: 1400px;
+
+//Custom from Bootstrap
+$blue: #1f4373 !default;
+
+//Custom Colour
+$black: 000000;
+$white: ffffff;
+$form-bg--blue: fade-out(#3f61a6, 0.8);
+$text-body: #666666;
+
+//Theme
+$colours: (
+	nav-colour: #d4d6da,
+	bright-grey: #ebeef2,
+	indigo: #1f4373,
+	sunny: #f2ea79,
+	vivid: #f50e16,
+	queen-blue: #3f61a6,
+	copy: #333333,
+);
+
+@function getColour($colour) {
+	@return map-get($colours, $colour);
+}
+
+//Box-shadow
+$boxShadow: inset 0 -2em 2em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(255, 255, 255),
+	0.2em 0.2em 1em rgba(0, 0, 0, 0.3);
+
+$shadowImage: inset 0 -2em 2em rgba(0, 0, 0, 0.3),
+	0.2em 0.2em 1em rgba(0, 0, 0, 0.3);

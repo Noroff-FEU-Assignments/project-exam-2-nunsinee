@@ -1,0 +1,78 @@
+a {
+	text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $heading-font-family;
+}
+
+h1 {
+	font-size: 2.488rem;
+	@media (max-width: $tablet) {
+		font-size: 1.8rem;
+	}
+}
+
+h2 {
+	font-size: 2.074rem;
+	color: var(--bs-blue);
+	@media (max-width: $tablet) {
+		font-size: 1.2rem;
+	}
+}
+
+h3 {
+	font-size: 1.728rem;
+	color: var(--bs-blue);
+}
+
+h4 {
+	font-size: 1.44rem;
+	font-weight: 300;
+	color: var(--bs-blue);
+}
+
+h5 {
+	font-size: 1.2rem;
+	color: getColour(copy);
+	font-weight: bold;
+	text-align: center;
+}
+
+h6 {
+	font-size: 1rem;
+	color: var(--bs-black);
+	font-weight: 300;
+}
+
+p {
+	font-family: $font-family-base;
+	font-size: 1rem;
+	font-weight: 300;
+	max-width: 450px;
+	line-height: 1.75;
+}
+
+.text-muted {
+	--bs-text-opacity: 1;
+	color: var(--bs-blue) !important;
+	font-size: 0.9rem;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-background {
+	max-width: 100%;
+	border-radius: $border-radius;
+	padding: 1em;
+}

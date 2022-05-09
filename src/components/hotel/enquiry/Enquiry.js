@@ -41,8 +41,11 @@ const schema = yup.object().shape({
 			MINIMUM_SUBJECT_CHARACTERS,
 			`Your subject must be at least ${MINIMUM_SUBJECT_CHARACTERS} characters`
 		),
-	checkInDate: yup.date().required("Please select check-in date"),
-	checkOutDate: yup.date().required("Please select check-out date"),
+	checkInDate: yup.date().nullable().typeError("Please enter Check-in date"),
+	checkOutDate: yup
+		.date()
+		.nullable()
+		.typeError("Please enter Check-out date"),
 	message: yup
 		.string("Please enter your message here")
 		.min(

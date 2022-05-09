@@ -55,7 +55,9 @@ export default function LoginForm() {
 			navigate("/admin");
 		} catch (error) {
 			console.log("error", error);
-			setLoginError(error.toString());
+			setLoginError(
+				"Sorry, We could´t find an account with that username or maybe your password is not corrected!"
+			);
 		} finally {
 			setSubmitting(false);
 		}

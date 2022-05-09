@@ -20,7 +20,12 @@ const schema = yup.object().shape({
 	facilities: yup.string().required("Facilities is required"),
 	description: yup.string().required("Description is required"),
 	roomTypes: yup.string().required("Room types is required"),
-	price: yup.number().required("Price is required"),
+	price: yup
+		.number()
+		.transform((value) => (isNaN(value) ? undefined : value))
+		.nullable()
+		.required("Price is required"),
+
 	featuredImage: yup
 		.mixed()
 		.test(

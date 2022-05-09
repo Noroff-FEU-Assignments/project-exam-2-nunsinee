@@ -49,18 +49,9 @@ export default function Hotels() {
 					<Breadcrumb.Item href="/">Home</Breadcrumb.Item>
 					<Breadcrumb.Item active>Hotels</Breadcrumb.Item>
 				</Breadcrumb>
+				<Heading title="Hotels" />
+				<SearchForm />
 				<Row>
-					<Col>
-						<Heading title="Hotels" />
-					</Col>
-				</Row>
-
-				<Row>
-					<Col>
-						<SearchForm />
-					</Col>
-				</Row>
-				<Row className="mb-6">
 					{hotels.map(function (hotel) {
 						return (
 							<Col xs={12} md={6} lg={4} key={hotel.id}>

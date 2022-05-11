@@ -9,6 +9,7 @@ import MessageItem from "./MessageItem";
 import Heading from "../../layout/Heading";
 import { BASE_URL } from "../../../constants/api";
 import { useTitlePage } from "../../../utils/useTitlePage";
+import Messages from "../../common/Messages";
 
 export default function MessageList() {
 	const [messages, setMessages] = useState([]);
@@ -43,6 +44,12 @@ export default function MessageList() {
 		return <ErrorMessage message={`Error:${error}`} />;
 	}
 
+	const warningMessage = () => {
+		if (messages.length === undefined || messages.length === 0) {
+			return <Messages>You have no messages.</Messages>;
+		}
+	};
+
 	return (
 		<>
 			<AdminPage>
@@ -52,22 +59,29 @@ export default function MessageList() {
 							<Heading title="Messages" />
 						</Col>
 					</Row>
+					<Row>
+						<Col sm className="text-center">
+							{warningMessage()}
+						</Col>
+					</Row>
 					<Row className="mb-6">
-						{messages.map(function (message) {
-							return (
-								<Col lg={12} key={message.id}>
-									<MessageItem
-										key={message.id}
-										id={message.id}
-										date={message.attributes.createdAt}
-										name={message.attributes.name}
-										subject={message.attributes.subject}
-										email={message.attributes.email}
-										message={message.attributes.message}
-									/>
-								</Col>
-							);
-						})}
+						{messages
+							.sort((a, b) => b.id - a.id)
+							.map(function (message) {
+								return (
+									<Col lg={12} key={message.id}>
+										<MessageItem
+											key={message.id}
+											id={message.id}
+											date={message.attributes.createdAt}
+											name={message.attributes.name}
+											subject={message.attributes.subject}
+											email={message.attributes.email}
+											message={message.attributes.message}
+										/>
+									</Col>
+								);
+							})}
 					</Row>
 				</Container>
 			</AdminPage>

@@ -1,8 +1,10 @@
 import PropTypes from "prop-types";
 import { converTime } from "../../../utils/converTime";
 import { Row, Col } from "react-bootstrap";
+import DeleteEnquiryButton from "../delete/DeleteEnquiryButton";
 
 export default function EnquiryItem({
+	id,
 	refHotelTitle,
 	email,
 	firstName,
@@ -41,6 +43,9 @@ export default function EnquiryItem({
 			<Col sm>
 				<strong>Message: </strong>: {message}
 				<hr />
+			</Col>
+			<Col sm>
+				<DeleteEnquiryButton id={id} />
 			</Col>
 		</Row>
 	);

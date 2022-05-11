@@ -51,8 +51,6 @@ export default function ContactForm() {
 		formState: { errors },
 	} = useForm({ resolver: yupResolver(schema) });
 
-	//console.log(errors);
-
 	async function onSubmit(data) {
 		console.log(data);
 

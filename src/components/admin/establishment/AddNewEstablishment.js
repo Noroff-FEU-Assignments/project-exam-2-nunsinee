@@ -270,7 +270,7 @@ export default function AddNewEstablishment() {
 
 						<Form.Group className="mt-5 mb-3">
 							<Form.Label>
-								Upload Room Image(Only two photos allowed)
+								Upload Room Image(Only 2 photos allowed)
 							</Form.Label>
 							<Paragraph>
 								Image width must be 640px and file-size must

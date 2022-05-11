@@ -9,6 +9,8 @@ import EnquiryItem from "./EnquiryItem";
 import { BASE_URL } from "../../../constants/api";
 import { useTitlePage } from "../../../utils/useTitlePage";
 import Heading from "../../layout/Heading";
+import FilterEnquiries from "../filter/FilterEnquiries";
+import Messages from "../../common/Messages";
 
 export default function EnquiryList() {
 	const [enquiries, setEnquiries] = useState([]);
@@ -23,6 +25,10 @@ export default function EnquiryList() {
 			try {
 				const response = await axios.get(url);
 				setEnquiries(response.data.data);
+
+				//22
+
+				//22
 			} catch (error) {
 				console.log(error);
 				setError(error.toString());
@@ -42,6 +48,12 @@ export default function EnquiryList() {
 		return <ErrorMessage message={`Error:${error}`} />;
 	}
 
+	const warningMessage = () => {
+		if (enquiries.length === undefined || enquiries.length === 0) {
+			return <Messages>You have no enquiries here"</Messages>;
+		}
+	};
+
 	return (
 		<>
 			<AdminPage>
@@ -51,32 +63,50 @@ export default function EnquiryList() {
 							<Heading title="Enquiries" />
 						</Col>
 					</Row>
+					<Row>
+						<Col sm>
+							<FilterEnquiries />
+						</Col>
+					</Row>
+
+					<Row>
+						<Col sm className="text-center">
+							{warningMessage()}
+						</Col>
+					</Row>
+
 					<Row className="mb-6">
-						{enquiries.map(function (enquiry) {
-							return (
-								<Col lg={12} key={enquiry.id}>
-									<EnquiryItem
-										key={enquiry.id}
-										id={enquiry.id}
-										date={enquiry.attributes.createdAt}
-										refHotelTitle={
-											enquiry.attributes.refHotelTitle
-										}
-										firstName={enquiry.attributes.firstName}
-										lastName={enquiry.attributes.lastName}
-										checkInDate={
-											enquiry.attributes.checkInDate
-										}
-										checkOutDate={
-											enquiry.attributes.checkOutDate
-										}
-										subject={enquiry.attributes.subject}
-										email={enquiry.attributes.email}
-										message={enquiry.attributes.message}
-									/>
-								</Col>
-							);
-						})}
+						{enquiries
+							.sort((a, b) => b.id - a.id)
+							.map(function (enquiry) {
+								return (
+									<Col lg={12} key={enquiry.id}>
+										<EnquiryItem
+											key={enquiry.id}
+											id={enquiry.id}
+											date={enquiry.attributes.createdAt}
+											refHotelTitle={
+												enquiry.attributes.refHotelTitle
+											}
+											firstName={
+												enquiry.attributes.firstName
+											}
+											lastName={
+												enquiry.attributes.lastName
+											}
+											checkInDate={
+												enquiry.attributes.checkInDate
+											}
+											checkOutDate={
+												enquiry.attributes.checkOutDate
+											}
+											subject={enquiry.attributes.subject}
+											email={enquiry.attributes.email}
+											message={enquiry.attributes.message}
+										/>
+									</Col>
+								);
+							})}
 					</Row>
 				</Container>
 			</AdminPage>

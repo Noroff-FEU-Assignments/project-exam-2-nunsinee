@@ -3,7 +3,6 @@ import axios from "axios";
 import AuthContext from "../context/AuthContext";
 
 const url = process.env.REACT_APP_BASE_URL;
-//const url = "https://exam-project-api.herokuapp.com/";
 
 export default function useAxios() {
 	const [auth] = useContext(AuthContext);

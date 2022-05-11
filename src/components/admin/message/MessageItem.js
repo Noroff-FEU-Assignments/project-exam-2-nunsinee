@@ -1,14 +1,25 @@
 import PropTypes from "prop-types";
 import { converTime } from "../../../utils/converTime";
 import { Row, Col } from "react-bootstrap";
+import DeleteMessageButton from "../delete/DeleteMessageButton";
 
-export default function MessageItem({ name, email, subject, message, date }) {
+export default function MessageItem({
+	id,
+	name,
+	email,
+	subject,
+	message,
+	date,
+}) {
 	return (
 		<Row className="message__container">
 			<Col sm>
 				<time dateTime={date}>
 					<strong>Date: </strong> {converTime(`${date}`)}
 				</time>
+			</Col>
+			<Col sm>
+				<strong>Name: </strong> {name}
 			</Col>
 			<Col sm>
 				<strong>Subject: </strong> {subject}
@@ -19,7 +30,10 @@ export default function MessageItem({ name, email, subject, message, date }) {
 			</Col>
 			<Col sm>
 				<strong>Message: </strong> {message}
+			</Col>
+			<Col sm>
 				<hr />
+				<DeleteMessageButton id={id} />
 			</Col>
 		</Row>
 	);

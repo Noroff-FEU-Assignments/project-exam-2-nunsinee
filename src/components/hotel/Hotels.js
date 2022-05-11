@@ -52,22 +52,24 @@ export default function Hotels() {
 				<Heading title="Hotels" />
 				<SearchForm />
 				<Row>
-					{hotels.map(function (hotel) {
-						return (
-							<Col xs={12} md={6} lg={4} key={hotel.id}>
-								<HotelItem
-									key={hotel.id}
-									id={hotel.id}
-									title={hotel.attributes.title}
-									price={hotel.attributes.price}
-									featuredImage={
-										hotel.attributes.featuredImage.data
-											.attributes.url
-									}
-								/>
-							</Col>
-						);
-					})}
+					{hotels
+						.sort((a, b) => b.id - a.id)
+						.map(function (hotel) {
+							return (
+								<Col xs={12} md={6} lg={4} key={hotel.id}>
+									<HotelItem
+										key={hotel.id}
+										id={hotel.id}
+										title={hotel.attributes.title}
+										price={hotel.attributes.price}
+										featuredImage={
+											hotel.attributes.featuredImage.data
+												.attributes.url
+										}
+									/>
+								</Col>
+							);
+						})}
 				</Row>
 			</Container>
 		</>

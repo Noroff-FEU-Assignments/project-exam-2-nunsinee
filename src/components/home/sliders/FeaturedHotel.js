@@ -59,6 +59,22 @@ export default function FeaturedHotel() {
 				},
 			},
 			{
+				breakpoint: 820,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 2,
+					initialSlide: 2,
+				},
+			},
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 2,
+					initialSlide: 2,
+				},
+			},
+			{
 				breakpoint: 600,
 				settings: {
 					slidesToShow: 2,
@@ -91,14 +107,14 @@ export default function FeaturedHotel() {
 												.attributes.url
 										}
 										alt="{hotel.attribute.title}"
-										className="card-img-top card-img-top__featuredhotel"
+										className="card-img-top__featuredhotel"
 									/>
 									<Card.Body>
 										<Card.Title>
 											<h4>
-												Start from{" "}
+												Start from&nbsp;
 												{hotel.attributes.price}
-												Kr. per Night
+												Kr./Night
 											</h4>
 										</Card.Title>
 									</Card.Body>

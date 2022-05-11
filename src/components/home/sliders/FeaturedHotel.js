@@ -77,33 +77,36 @@ export default function FeaturedHotel() {
 	};
 	return (
 		<Slider {...settings}>
-			{hotels.map((hotel) => {
-				return (
-					<div key={hotel.id} className="slider-container">
-						<Link to={`detail/${hotel.id}`}>
-							<Card className="slider__card card__featuredhotel">
-								<Card.Img
-									variant="top"
-									src={
-										hotel.attributes.featuredImage.data
-											.attributes.url
-									}
-									alt="{hotel.attribute.title}"
-									className="card-img-top card-img-top__featuredhotel"
-								/>
-								<Card.Body>
-									<Card.Title>
-										<h4>
-											Start from {hotel.attributes.price}
-											Kr. per Night
-										</h4>
-									</Card.Title>
-								</Card.Body>
-							</Card>
-						</Link>
-					</div>
-				);
-			})}
+			{hotels
+				.sort((a, b) => b.id - a.id)
+				.map((hotel) => {
+					return (
+						<div key={hotel.id} className="slider-container">
+							<Link to={`detail/${hotel.id}`}>
+								<Card className="slider__card card__featuredhotel">
+									<Card.Img
+										variant="top"
+										src={
+											hotel.attributes.featuredImage.data
+												.attributes.url
+										}
+										alt="{hotel.attribute.title}"
+										className="card-img-top card-img-top__featuredhotel"
+									/>
+									<Card.Body>
+										<Card.Title>
+											<h4>
+												Start from{" "}
+												{hotel.attributes.price}
+												Kr. per Night
+											</h4>
+										</Card.Title>
+									</Card.Body>
+								</Card>
+							</Link>
+						</div>
+					);
+				})}
 		</Slider>
 	);
 }

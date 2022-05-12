@@ -46,7 +46,7 @@ const schema = yup.object().shape({
 		.mixed()
 		.test(
 			"required",
-			"Featured image is required (File Type: jpeg, png and jpg)",
+			"Room image is required  2 photos/files (File Type: jpeg, png and jpg)",
 			(value) => value.length > 0
 		)
 		.test("fileSize", "File Size is too large", (value) => {

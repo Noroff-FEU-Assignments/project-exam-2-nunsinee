@@ -3,6 +3,7 @@
 
 	&__input {
 		box-shadow: none;
+		border: 2px solid rgba(getColour(indigo), 0.3);
 	}
 
 	&__input:focus {

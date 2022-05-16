@@ -10,7 +10,6 @@ export default function SearchForm() {
 	const [hotels, setHotels] = useState([]);
 	const [text, setText] = useState("");
 	const [guidence, setGuidence] = useState([]);
-
 	const http = BASE_URL + "api/hotels";
 
 	useEffect(() => {

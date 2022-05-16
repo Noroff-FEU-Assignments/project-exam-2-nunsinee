@@ -8,7 +8,7 @@ export default function HomePage() {
 		<>
 			<Container className="container__content">
 				<Row>
-					<Col className="mt-5 text-center">
+					<Col className="mt-2 text-center">
 						<SubHeading subtitle="Looking for place to stay in Bergen?" />
 					</Col>
 				</Row>

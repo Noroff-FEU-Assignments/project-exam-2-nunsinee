@@ -8,10 +8,7 @@
 	&__input:focus {
 		box-shadow: none;
 		border: 2px solid rgba(getColour(copy), 0.3);
-		background: transparentize(
-			$color: getColour(bright-grey),
-			$amount: 0.6
-		);
+		background: transparentize($color: getColour(sunny), $amount: 0.3);
 	}
 
 	&__suggest {

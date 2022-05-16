@@ -1,4 +1,5 @@
 import { Container, Col } from "react-bootstrap";
+import PropTypes from "prop-types";
 
 export default function Footer({ children }) {
 	return (
@@ -14,3 +15,7 @@ export default function Footer({ children }) {
 		</>
 	);
 }
+
+Footer.propTypes = {
+	footer: PropTypes.node,
+};

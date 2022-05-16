@@ -1,3 +1,14 @@
+# Access to Admin Panel on Login Pages
+
+username : webbymim@gmail.com
+password:Exam2023
+
+# Access to API Strapi Api
+
+Link:https://exam-project-api.herokuapp.com/admin/auth/login
+username : webbymim@gmail.com
+password:Exam2023
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

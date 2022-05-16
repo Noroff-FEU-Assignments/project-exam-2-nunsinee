@@ -54,6 +54,8 @@ export default function EnquiryItem({
 EnquiryItem.propTypes = {
 	id: PropTypes.number,
 	refHotelTitle: PropTypes.string,
+	firstName: PropTypes.string,
+	lastName: PropTypes.string,
 	subject: PropTypes.string,
 	email: PropTypes.string,
 	message: PropTypes.string,

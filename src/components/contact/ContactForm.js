@@ -49,6 +49,7 @@ export default function ContactForm() {
 		register,
 		handleSubmit,
 		formState: { errors },
+		reset,
 	} = useForm({ resolver: yupResolver(schema) });
 
 	async function onSubmit(data) {
@@ -69,6 +70,7 @@ export default function ContactForm() {
 		try {
 			const response = await axios.post(url, formData);
 			console.log("response", response.data);
+			reset();
 		} catch (error) {
 			console.log("error", error);
 		}

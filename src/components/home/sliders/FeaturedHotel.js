@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
-import { Card } from "react-bootstrap";
+import { Card, Row, Col } from "react-bootstrap";
 import Loader from "../../layout/Loader";
 import ErrorMessage from "../../common/ErrorMessage";
 import { BASE_URL } from "../../../constants/api";
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
 import axios from "axios";
 
 export default function FeaturedHotel() {
@@ -47,7 +45,11 @@ export default function FeaturedHotel() {
 		infinite: true,
 		speed: 500,
 		slidesToShow: 3,
-		slidesToScroll: 3,
+		slidesToScroll: 2,
+		autoplay: true,
+		autoplaySpeed: 2000,
+		cssEase: "linear",
+
 		responsive: [
 			{
 				breakpoint: 1024,
@@ -92,37 +94,42 @@ export default function FeaturedHotel() {
 		],
 	};
 	return (
-		<Slider {...settings}>
-			{hotels
-				.sort((a, b) => b.id - a.id)
-				.map((hotel) => {
-					return (
-						<div key={hotel.id} className="slider-container">
-							<Link to={`detail/${hotel.id}`}>
-								<Card className="slider__card card__featuredhotel">
-									<Card.Img
-										variant="top"
-										src={
-											hotel.attributes.featuredImage.data
-												.attributes.url
-										}
-										alt="{hotel.attribute.title}"
-										className="card-img-top__featuredhotel"
-									/>
-									<Card.Body>
-										<Card.Title>
-											<h4>
-												Start from&nbsp;
-												{hotel.attributes.price}
-												Kr./Night
-											</h4>
-										</Card.Title>
-									</Card.Body>
-								</Card>
-							</Link>
-						</div>
-					);
-				})}
-		</Slider>
+		<Row>
+			<Col sm className="mt-5">
+				<Slider {...settings}>
+					{hotels
+						.sort((a, b) => b.id - a.id)
+						.map((hotel) => {
+							return (
+								<div key={hotel.id}>
+									<Link to={`detail/${hotel.id}`}>
+										<Card className="slider__card card__featuredhotel">
+											<Card.Img
+												variant="top"
+												src={
+													hotel.attributes
+														.featuredImage.data
+														.attributes.url
+												}
+												alt="{hotel.attribute.title}"
+												className="card-img-top__featuredhotel"
+											/>
+											<Card.Body>
+												<Card.Title>
+													<h4>
+														Start from&nbsp;
+														{hotel.attributes.price}
+														Kr./Night
+													</h4>
+												</Card.Title>
+											</Card.Body>
+										</Card>
+									</Link>
+								</div>
+							);
+						})}
+				</Slider>
+			</Col>
+		</Row>
 	);
 }

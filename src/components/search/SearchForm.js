@@ -68,7 +68,7 @@ export default function SearchForm() {
 								guidence.map((guide, index) => (
 									<div
 										key={index}
-										className=" suggest col-md-12 justify-content-md-center"
+										className=" search search__suggest "
 										onClick={() =>
 											guidenceHandle(
 												guide.attributes.title

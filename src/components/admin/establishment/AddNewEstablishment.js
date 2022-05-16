@@ -181,8 +181,7 @@ export default function AddNewEstablishment() {
 							<Form.Label>Description</Form.Label>
 							<Form.Control
 								as="textarea"
-								row={10}
-								style={{ height: "100px" }}
+								rows="6"
 								aria-label="With textarea"
 								name="description"
 								placeholder="Description"
@@ -234,6 +233,8 @@ export default function AddNewEstablishment() {
 						<Form.Group className="mb-3">
 							<Form.Label>Facilities</Form.Label>
 							<Form.Control
+								as="textarea"
+								rows="2"
 								name="facilities"
 								placeholder="e.g., free-wifi, free-parking, restaurant, spa etc."
 								{...register("facilities")}
@@ -308,6 +309,9 @@ AddNewEstablishment.propTypes = {
 	title: PropTypes.string,
 	address: PropTypes.string,
 	description: PropTypes.string,
+	facilities: PropTypes.string,
 	roomTypes: PropTypes.string,
 	price: PropTypes.number,
+	featuredImage: PropTypes.string,
+	roomtypeImage: PropTypes.string,
 };

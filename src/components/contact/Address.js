@@ -5,7 +5,7 @@ import { Row, Col } from "react-bootstrap";
 import SubHeading from "../layout/SubHeading";
 import logoContact from "../../assets/logo_contact.png";
 
-export default function Adress(props) {
+export default function Adress() {
 	return (
 		<>
 			<Row>

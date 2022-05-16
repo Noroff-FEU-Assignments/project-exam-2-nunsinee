@@ -50,8 +50,12 @@ export default function Hotels() {
 					<Breadcrumb.Item active>Hotels</Breadcrumb.Item>
 				</Breadcrumb>
 				<Heading title="Hotels" />
-				<SearchForm />
-				<Row>
+				<Row className=" justify-content-md-center">
+					<Col sm className="search__container">
+						<SearchForm />
+					</Col>
+				</Row>
+				<Row className="space__top justify-content-md-center">
 					{hotels
 						.sort((a, b) => b.id - a.id)
 						.map(function (hotel) {

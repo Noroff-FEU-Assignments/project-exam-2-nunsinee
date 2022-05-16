@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import AdminPage from "../AdminPage";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -25,10 +26,6 @@ export default function EnquiryList() {
 			try {
 				const response = await axios.get(url);
 				setEnquiries(response.data.data);
-
-				//22
-
-				//22
 			} catch (error) {
 				console.log(error);
 				setError(error.toString());
@@ -113,3 +110,16 @@ export default function EnquiryList() {
 		</>
 	);
 }
+
+EnquiryList.propTypes = {
+	id: PropTypes.number,
+	refHotelTitle: PropTypes.string,
+	subject: PropTypes.string,
+	firstName: PropTypes.string,
+	lastName: PropTypes.string,
+	email: PropTypes.string,
+	message: PropTypes.string,
+	checkInDate: PropTypes.string,
+	checkOutDate: PropTypes.string,
+	date: PropTypes.string,
+};

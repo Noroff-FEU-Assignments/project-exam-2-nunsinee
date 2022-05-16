@@ -18,9 +18,6 @@ import {
 	Modal,
 } from "react-bootstrap";
 
-import defaultFeaturedImage from "../../assets/default_featured_Image.jpg";
-import defaultRoomImage from "../../assets/default_room_image.jpg";
-
 export default function HotelDetailPage() {
 	const [hotel, setHotel] = useState([]);
 	const [loading, setLoading] = useState(true);
@@ -171,7 +168,7 @@ export default function HotelDetailPage() {
 				</Modal.Body>
 				<Modal.Footer>
 					<Button variant="danger" onClick={handleClose}>
-						Close Button
+						Close
 					</Button>
 				</Modal.Footer>
 			</Modal>
@@ -187,13 +184,11 @@ HotelDetailPage.propTypes = {
 	description: PropTypes.string,
 	roomTypes: PropTypes.string,
 	price: PropTypes.number,
-	featuredImage: PropTypes.string.isRequired,
+	featuredImage: PropTypes.string,
 	roomImage: PropTypes.string,
 };
 
 HotelDetailPage.defaultProps = {
 	title: "default name",
 	price: 450,
-	featuredImage: defaultFeaturedImage,
-	roomImage: defaultRoomImage,
 };

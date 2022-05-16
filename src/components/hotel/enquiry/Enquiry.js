@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import FormError from "../../common/FormError";
@@ -8,6 +7,7 @@ import axios from "axios";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { BASE_URL } from "../../../constants/api";
 import Heading from "../../layout/Heading";
+import { useNavigate } from "react-router-dom";
 
 import {
 	MINIMUM_FIRST_NAME_CHARACTERS,
@@ -56,7 +56,8 @@ const schema = yup.object().shape({
 });
 
 export default function Enquiry({ title }) {
-	const navigate = useNavigate();
+	let navigate = useNavigate();
+
 	const url = BASE_URL + "api/enquiries";
 
 	const {
@@ -90,7 +91,7 @@ export default function Enquiry({ title }) {
 		try {
 			const response = await axios.post(url, formData);
 			console.log("response", response.data);
-			navigate("/hotel");
+			navigate("/hotel/enquiry");
 		} catch (error) {
 			console.log("error", error);
 		}
@@ -221,6 +222,7 @@ export default function Enquiry({ title }) {
 						<Form.Control
 							as="textarea"
 							name="message"
+							rows="5"
 							aria-label="With textarea"
 							className="form-control"
 							placeholder="Message"

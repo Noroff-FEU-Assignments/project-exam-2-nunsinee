@@ -5,7 +5,7 @@ export default function Messages({ children }) {
 	return (
 		<>
 			<Row>
-				<Col md={{ span: 6, offset: 3 }}>
+				<Col sm={12}>
 					<Alert variant="success">{children}</Alert>
 				</Col>
 			</Row>

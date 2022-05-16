@@ -12,9 +12,13 @@ export default function HomePage() {
 						<SubHeading subtitle="Looking for place to stay in Bergen?" />
 					</Col>
 				</Row>
+				<Row className="justify-content-md-center mb-5">
+					<Col sm className="search__container">
+						<SearchForm />
+					</Col>
+				</Row>
 				<Row>
 					<Col className="mt-3">
-						<SearchForm />
 						<FeaturedHotel />
 					</Col>
 				</Row>

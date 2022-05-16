@@ -1,4 +1,5 @@
 import { Spinner, Row, Col } from "react-bootstrap";
+import PropTypes from "prop-types";
 
 export default function Loader() {
 	return (
@@ -13,3 +14,7 @@ export default function Loader() {
 		</Row>
 	);
 }
+
+Loader.propTypes = {
+	Spinner: PropTypes.node,
+};

@@ -49,18 +49,29 @@ export default function Hotels() {
 					<Breadcrumb.Item href="/">Home</Breadcrumb.Item>
 					<Breadcrumb.Item active>Hotels</Breadcrumb.Item>
 				</Breadcrumb>
-				<Heading title="Hotels" />
-				<Row className=" justify-content-md-center">
-					<Col sm className="search__container">
+				<Row className="text-center">
+					<Col>
+						<Heading title="Hotels in Bergen" />
+					</Col>
+				</Row>
+
+				<Row className=" justify-content-md-center mt-3">
+					<Col sm className="search__container ">
 						<SearchForm />
 					</Col>
 				</Row>
-				<Row className="space__top justify-content-md-center">
+				<Row className="space__top justify-content-md-center ">
 					{hotels
 						.sort((a, b) => b.id - a.id)
 						.map(function (hotel) {
 							return (
-								<Col xs={12} md={6} lg={4} key={hotel.id}>
+								<Col
+									xs={12}
+									md={6}
+									lg={4}
+									key={hotel.id}
+									className="mt-4"
+								>
 									<HotelItem
 										key={hotel.id}
 										id={hotel.id}

@@ -14,12 +14,9 @@
 
 	&__suggest {
 		&:nth-child(even) {
-			background: transparentize(
-				$color: getColour(nav-colour),
-				$amount: 0.1
-			);
+			background: getColour(white);
 		}
-		background: transparentize($color: getColour(white), $amount: 0.2);
+		background: getColour(nav-colour);
 		padding: 0.25em 1em;
 		border-bottom: 1px solid rgba(getColour(copy), 0.5);
 		cursor: pointer;

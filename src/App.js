@@ -33,8 +33,9 @@ function App() {
 							path="/hotel/enquiry/"
 							element={<ThankyouPage />}
 						/>
-						<Route path="/login" element={<LoginForm />} />
+
 						<Route path="/contact" element={<Contact />} />
+						<Route path="/login" element={<LoginForm />} />
 						<Route path="/admin" element={<AdminPage />} />
 						<Route
 							path="/admin/establishment"

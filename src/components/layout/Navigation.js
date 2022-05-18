@@ -32,11 +32,11 @@ function Navigation() {
 						<NavLink to="/hotel" className="nav-link">
 							Hotels
 						</NavLink>
-						<NavLink to="/login" className="nav-link">
-							Login
-						</NavLink>
 						<NavLink to="/contact" className="nav-link">
 							Contact
+						</NavLink>
+						<NavLink to="/login" className="nav-link">
+							Login
 						</NavLink>
 					</Nav>
 					<Nav className="mr-auto">

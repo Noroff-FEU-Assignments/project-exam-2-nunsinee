@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { BASE_URL } from "../../constants/api";
 import axios from "axios";
 import ErrorMessage from "../common/ErrorMessage";
-import { Container, Row, Col, Breadcrumb } from "react-bootstrap";
+import { Container, Row, Col, Breadcrumb, Button } from "react-bootstrap";
 import Loader from "../layout/Loader";
 import HotelItem from "./HotelItem";
 import SearchForm from "../search/SearchForm";
@@ -14,6 +14,8 @@ export default function Hotels() {
 	const [hotels, setHotels] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
+	const [showMore, setShowMore] = useState(false); //22
+	const [buttonText, setButtonText] = useState("Show More"); //22
 
 	useTitlePage("Hotel | accommodation, Apartment, GuestHouse in Bergen");
 	const url = BASE_URL + "api/hotels?populate=*";
@@ -42,6 +44,15 @@ export default function Hotels() {
 		return <ErrorMessage message={`Error:${error}`} />;
 	}
 
+	//22
+
+	const clickLoadMoreHotels = () => {
+		setShowMore((oldValue) => !oldValue);
+		showMore ? setButtonText("Show More") : setButtonText("Show Less");
+	};
+
+	//22
+
 	return (
 		<>
 			<Container className="container__content">
@@ -63,6 +74,7 @@ export default function Hotels() {
 				<Row className="space__top justify-content-md-center ">
 					{hotels
 						.sort((a, b) => b.id - a.id)
+						.slice(0, showMore ? hotels.lenght : 12)
 						.map(function (hotel) {
 							return (
 								<Col
@@ -85,6 +97,13 @@ export default function Hotels() {
 								</Col>
 							);
 						})}
+				</Row>
+				<Row className="text-center">
+					<Col sm>
+						<Button onClick={() => clickLoadMoreHotels()}>
+							{buttonText}
+						</Button>
+					</Col>
 				</Row>
 			</Container>
 		</>

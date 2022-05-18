@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Card, Row, Col, Badge } from "react-bootstrap";
+import { Card, Row, Col } from "react-bootstrap";
 import Loader from "../layout/Loader";
 import Title from "../layout/Title";
 import ErrorMessage from "../common/ErrorMessage";
@@ -43,9 +43,7 @@ export default function TopPicHotels() {
 		<>
 			<Row>
 				<Col className="text-center mt-5">
-					<Badge bg="light">
-						<Title title="Top picks in Bergen" />
-					</Badge>{" "}
+					<Title title="Top picks in Bergen" />
 				</Col>
 			</Row>
 			<Row>
@@ -76,10 +74,8 @@ export default function TopPicHotels() {
 											<h6>
 												{hotel.attributes.roomTypes}
 											</h6>
-											<p>
-												{hotel.attributes.price}
-												Kr./Night
-											</p>
+											{hotel.attributes.price}
+											Kr./Night
 										</Card.Body>
 									</Card>
 								</Link>

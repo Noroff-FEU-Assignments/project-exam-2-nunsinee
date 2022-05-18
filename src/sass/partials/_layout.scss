@@ -82,10 +82,12 @@ body {
 	&__featuredImage {
 		margin-bottom: 2em;
 		box-shadow: $shadowImage;
+		object-fit: cover;
 	}
 
 	&__roomImage {
 		margin-bottom: 2em;
+		object-fit: cover;
 	}
 
 	&__contact {

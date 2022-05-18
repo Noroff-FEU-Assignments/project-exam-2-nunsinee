@@ -14,7 +14,7 @@ function Navigation() {
 	}
 
 	function login() {
-		setAuth();
+		setAuth(null);
 		navigate("/login");
 	}
 

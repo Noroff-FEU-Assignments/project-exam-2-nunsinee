@@ -2,6 +2,7 @@ import SubHeading from "../layout/SubHeading";
 import { Container, Row, Col } from "react-bootstrap";
 import SearchForm from "../search/SearchForm";
 import FeaturedHotel from "./sliders/FeaturedHotel";
+import PopularHotels from "./PopularHotels";
 
 export default function HomePage() {
 	return (
@@ -20,6 +21,12 @@ export default function HomePage() {
 				<Row>
 					<Col className="mt-3">
 						<FeaturedHotel />
+					</Col>
+				</Row>
+
+				<Row>
+					<Col className="mt-3">
+						<PopularHotels />
 					</Col>
 				</Row>
 			</Container>

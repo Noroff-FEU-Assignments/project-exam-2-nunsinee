@@ -63,9 +63,14 @@ body {
 
 //Image
 
+.badge {
+	border: 1px solid getColour(queen-blue);
+}
+
 .image {
 	width: 100%;
 	border-radius: $border-radius;
+	filter: saturate(2);
 
 	&__featuredImage,
 	&__roomImage {

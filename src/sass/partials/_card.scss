@@ -11,6 +11,19 @@
 	&__featuredhotel {
 		border: none !important;
 	}
+	&__popular {
+		width: 100%;
+		box-shadow: $boxShadowPopular;
+		@media (max-width: $mobile) {
+			width: 100%;
+		}
+		@media (min-width: $tablet) {
+			width: 100%;
+		}
+		@media (min-width: $desktop) {
+			width: 15em;
+		}
+	}
 }
 
 .card-img-top {
@@ -19,6 +32,14 @@
 
 	&__featuredhotel {
 		filter: drop-shadow(0 0 0.1rem var(--bs-black));
+		filter: saturate(2);
+	}
+	&__popular {
+		height: 150px;
+		filter: saturate(2);
+		@media (min-width: $tablet) {
+			height: 130px;
+		}
 	}
 }
 
@@ -28,4 +49,16 @@
 	font-family: $heading-font-family;
 	font-size: 1rem;
 	margin: 0 auto;
+}
+
+.card-body {
+	&__popular {
+		height: 100px;
+		@media (min-width: $tablet) {
+			height: 130px;
+		}
+		@media (min-width: $desktop) {
+			height: 120px;
+		}
+	}
 }

@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Card, Row, Col, Badge } from "react-bootstrap";
-import Loader from "../../components/layout/Loader";
+import Loader from "../layout/Loader";
 import Title from "../layout/Title";
 import ErrorMessage from "../common/ErrorMessage";
 import { BASE_URL } from "../../constants/api";
 import axios from "axios";
+import SubTitle from "../layout/SubTitle";
 
-export default function PopularHotels() {
+export default function TopPicHotels() {
 	const [hotels, setHotels] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
@@ -66,17 +67,19 @@ export default function PopularHotels() {
 											className="card-img-top__popular"
 										/>
 
-										<Card.Body className="card-body__popular">
-											<Card.Text>
-												<h5>
-													{hotel.attributes.title}
-												</h5>
+										<Card.Body className="card-body__popular text-center">
+											<SubTitle
+												subtitle={
+													hotel.attributes.title
+												}
+											/>
+											<h6>
 												{hotel.attributes.roomTypes}
-												<h6>
-													{hotel.attributes.price}
-													Kr./Night
-												</h6>
-											</Card.Text>
+											</h6>
+											<p>
+												{hotel.attributes.price}
+												Kr./Night
+											</p>
 										</Card.Body>
 									</Card>
 								</Link>

@@ -53,9 +53,9 @@
 
 .card-body {
 	&__popular {
-		height: 100px;
+		height: 110px;
 		@media (min-width: $tablet) {
-			height: 130px;
+			height: 150px;
 		}
 		@media (min-width: $desktop) {
 			height: 120px;

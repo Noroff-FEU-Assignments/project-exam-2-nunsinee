@@ -44,14 +44,10 @@ export default function Hotels() {
 		return <ErrorMessage message={`Error:${error}`} />;
 	}
 
-	//22
-
 	const clickLoadMoreHotels = () => {
 		setShowMore((oldValue) => !oldValue);
 		showMore ? setButtonText("Show More") : setButtonText("Show Less");
 	};
-
-	//22
 
 	return (
 		<>

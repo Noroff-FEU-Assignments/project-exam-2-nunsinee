@@ -13,6 +13,11 @@ function Navigation() {
 		navigate("/");
 	}
 
+	function login() {
+		setAuth();
+		navigate("/login");
+	}
+
 	return (
 		<Navbar bg="dark" variant="dark" expand="lg" className="menu">
 			<Container>
@@ -35,9 +40,6 @@ function Navigation() {
 						<NavLink to="/contact" className="nav-link">
 							Contact
 						</NavLink>
-						<NavLink to="/login" className="nav-link">
-							Login
-						</NavLink>
 					</Nav>
 					<Nav className="mr-auto">
 						{auth ? (
@@ -50,7 +52,9 @@ function Navigation() {
 								</Button>
 							</>
 						) : (
-							""
+							<Button variant="dark" onClick={login}>
+								Log in
+							</Button>
 						)}
 					</Nav>
 				</Navbar.Collapse>

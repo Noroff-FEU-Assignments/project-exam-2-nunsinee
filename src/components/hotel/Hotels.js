@@ -45,7 +45,7 @@ export default function Hotels() {
 	}
 
 	const clickLoadMoreHotels = () => {
-		setShowMore((oldValue) => !oldValue);
+		setShowMore((oldItem) => !oldItem);
 		showMore ? setButtonText("Show More") : setButtonText("Show Less");
 	};
 

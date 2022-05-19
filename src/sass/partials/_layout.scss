@@ -112,6 +112,27 @@ body {
 	margin-right: 0.5em;
 }
 
+hr {
+	color: rgba(getColour(copy), 0.4);
+}
+
+//Enquiry Buttons
+
+.enquiry__btn--one {
+	@media (max-width: $mobile) {
+		display: none;
+	}
+}
+
+.enquiry__btn--two {
+	@media (max-width: $mobile) {
+		display: block;
+	}
+	@media (min-width: $mobile) {
+		display: none;
+	}
+}
+
 footer {
 	@include footer__gradient;
 	display: flex;
@@ -120,8 +141,4 @@ footer {
 	text-align: center;
 	font-size: 0.8rem;
 	padding: 0.75em;
-}
-
-hr {
-	color: rgba(getColour(copy), 0.4);
 }

@@ -155,7 +155,7 @@ export default function ContactForm() {
 					</Form.Group>
 
 					<Button type="submit" className="mb-2">
-						Sending
+						Send
 					</Button>
 				</fieldset>
 			</Form>

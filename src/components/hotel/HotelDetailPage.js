@@ -75,15 +75,33 @@ export default function HotelDetailPage() {
 					{hotel.attributes.title}
 				</Breadcrumb.Item>
 			</Breadcrumb>
-
 			<Row>
-				<Col xs={12} md={8}>
+				<Col>
 					<Heading title={hotel.attributes.title} />
 				</Col>
+				<Col className="enquiry__btn--one text-right">
+					<Button
+						variant="primary"
+						type="submit"
+						data-id={hotel.id}
+						data-title={hotel.attributes.title}
+						value={hotel.attributes.title}
+						onClick={handleShowEnquiry}
+						data-toggle="modal"
+					>
+						Send An Enquiry
+					</Button>
+				</Col>
 			</Row>
-			<h6>
-				<b>Address:</b> {hotel.attributes.address}
-			</h6>
+
+			<Row>
+				<Col sm>
+					<h6>
+						<b>Address:</b> {hotel.attributes.address}
+					</h6>
+				</Col>
+			</Row>
+
 			<Row>
 				<Col sm={12} className="mb-3">
 					<img
@@ -108,21 +126,10 @@ export default function HotelDetailPage() {
 					<Title title="Room Types" />
 					<Paragraph>{hotel.attributes.roomTypes}</Paragraph>
 				</Col>
-				<Col xs={12} md={6} className="mb-5">
+				<Col xs={12} md={6} className="mb-3">
 					<Title title="Price/Night" />
 					<Paragraph>{hotel.attributes.price}Kr.</Paragraph>
 					<Paragraph>(**Price in Norwegian Krone**)</Paragraph>
-					<Button
-						variant="primary"
-						type="submit"
-						data-id={hotel.id}
-						data-title={hotel.attributes.title}
-						value={hotel.attributes.title}
-						onClick={handleShowEnquiry}
-						data-toggle="modal"
-					>
-						Send An Enquiry
-					</Button>
 				</Col>
 			</Row>
 			<Row className="image__container">
@@ -141,9 +148,7 @@ export default function HotelDetailPage() {
 						className="image image__roomImage"
 					/>
 				</Col>
-			</Row>
-			<Row>
-				<Col xs={12} md={6}>
+				<Col xs={12} md={6} className="enquiry__btn--two text-left">
 					<Button
 						variant="primary"
 						type="submit"
@@ -157,6 +162,7 @@ export default function HotelDetailPage() {
 					</Button>
 				</Col>
 			</Row>
+
 			<Modal show={show} onHide={handleClose}>
 				<Modal.Header closeButton>
 					<Modal.Title>
@@ -166,11 +172,6 @@ export default function HotelDetailPage() {
 				<Modal.Body>
 					<Enquiry title={hotel.attributes.title} />
 				</Modal.Body>
-				<Modal.Footer>
-					<Button variant="danger" onClick={handleClose}>
-						Close
-					</Button>
-				</Modal.Footer>
 			</Modal>
 		</Container>
 	);

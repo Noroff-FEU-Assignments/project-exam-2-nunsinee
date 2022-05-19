@@ -14,7 +14,6 @@ function Navigation() {
 	}
 
 	function login() {
-		setAuth(null);
 		navigate("/login");
 	}
 
@@ -47,7 +46,7 @@ function Navigation() {
 								<NavLink to="/admin" className="nav-link">
 									admin
 								</NavLink>
-								<Button variant="dark" onClick={logout}>
+								<Button variant="danger" onClick={logout}>
 									Log out
 								</Button>
 							</>

@@ -13,9 +13,13 @@ export default function ThankyouPage() {
 					<Breadcrumb.Item href="/hotel">Hotels</Breadcrumb.Item>
 				</Breadcrumb>
 				<Row md={4}>
-					<Col md={{ span: 6, offset: 3 }}>
+					<Col
+						md={{ span: 6, offset: 3 }}
+						className="text-center mt-5 mb-3"
+					>
 						<Messages>
-							Thank you for your enquiry. We will get back to you
+							THANK YOU <hr />
+							We have received your enquiry and will response you
 							soon.
 						</Messages>
 					</Col>

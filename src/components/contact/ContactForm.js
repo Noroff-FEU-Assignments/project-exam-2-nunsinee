@@ -83,8 +83,9 @@ export default function ContactForm() {
 				className="form form__contact"
 			>
 				{submitted && (
-					<Alert variant="success">
-						Thank you for your message. We will reply you soon.
+					<Alert variant="success alert__contact">
+						Thank you for contacting us. We will reply you as soon
+						as possible!.
 					</Alert>
 				)}
 				<fieldset>

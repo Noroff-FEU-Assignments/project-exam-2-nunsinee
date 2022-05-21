@@ -59,7 +59,7 @@ export default function FilterEnquiries() {
 							/>
 							<Form.Control
 								type="text"
-								placeholder="Filter by Hotel Ref.(Hotel Name)..."
+								placeholder="Find by Hotel Ref./Hotel Name"
 								onChange={(e) => onChangeHandle(e.target.value)}
 								value={text}
 								className="search search__input"

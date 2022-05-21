@@ -72,12 +72,12 @@ export default function EnquiryList() {
 						</Col>
 					</Row>
 
-					<Row className="mb-6">
+					<Row className="mb-6 justify-content-md-center">
 						{enquiries
 							.sort((a, b) => b.id - a.id)
 							.map(function (enquiry) {
 								return (
-									<Col lg={12} key={enquiry.id}>
+									<Col xs={12} md={8} key={enquiry.id}>
 										<EnquiryItem
 											key={enquiry.id}
 											id={enquiry.id}

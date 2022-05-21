@@ -64,12 +64,12 @@ export default function MessageList() {
 							{warningMessage()}
 						</Col>
 					</Row>
-					<Row className="mb-6">
+					<Row className="mb-6 justify-content-md-center">
 						{messages
 							.sort((a, b) => b.id - a.id)
 							.map(function (message) {
 								return (
-									<Col lg={12} key={message.id}>
+									<Col xs={12} md={8} key={message.id}>
 										<MessageItem
 											key={message.id}
 											id={message.id}

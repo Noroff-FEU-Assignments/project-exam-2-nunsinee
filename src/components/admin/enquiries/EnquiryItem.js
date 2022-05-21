@@ -44,7 +44,7 @@ export default function EnquiryItem({
 				<strong>Message: </strong>: {message}
 				<hr />
 			</Col>
-			<Col sm>
+			<Col sm className="mb-2">
 				<DeleteEnquiryButton id={id} />
 			</Col>
 		</Row>

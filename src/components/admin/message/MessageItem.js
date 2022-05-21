@@ -31,7 +31,7 @@ export default function MessageItem({
 			<Col sm>
 				<strong>Message: </strong> {message}
 			</Col>
-			<Col sm>
+			<Col sm className="mb-2">
 				<hr />
 				<DeleteMessageButton id={id} />
 			</Col>

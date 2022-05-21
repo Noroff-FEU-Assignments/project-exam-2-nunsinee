@@ -25,7 +25,7 @@ const schema = yup.object().shape({
 		.transform((value) => (isNaN(value) ? undefined : value))
 		.nullable()
 		.required(
-			"Price is required  **No comma(,) or decimol(.) between number"
+			"Price is required.. *Not allow comma(,) or decimol(.) between number*"
 		),
 
 	featuredImage: yup

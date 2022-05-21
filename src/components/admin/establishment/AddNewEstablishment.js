@@ -24,7 +24,9 @@ const schema = yup.object().shape({
 		.number()
 		.transform((value) => (isNaN(value) ? undefined : value))
 		.nullable()
-		.required("Price is required"),
+		.required(
+			"Price is required  **No comma(,) or decimol(.) between number"
+		),
 
 	featuredImage: yup
 		.mixed()
@@ -218,7 +220,7 @@ export default function AddNewEstablishment() {
 							</Form.Label>
 							<Form.Control
 								name="price"
-								placeholder="Price"
+								placeholder="e.g 400, 1200"
 								{...register("price")}
 							/>
 							<Form.Text>

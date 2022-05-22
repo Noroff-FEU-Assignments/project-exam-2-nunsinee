@@ -18,7 +18,6 @@ export default function ThankyouPage() {
 						className="text-center mt-5 mb-3"
 					>
 						<Messages>
-							THANK YOU <hr />
 							We have received your enquiry and will response you
 							soon.
 						</Messages>
@@ -44,4 +43,4 @@ export default function ThankyouPage() {
 	);
 }
 
-ThankyouPage.propTypes = { Message: PropTypes.string };
+ThankyouPage.propTypes = { Messages: PropTypes.string };

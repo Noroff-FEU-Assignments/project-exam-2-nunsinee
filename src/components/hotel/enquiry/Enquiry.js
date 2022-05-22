@@ -1,3 +1,4 @@
+import { useState } from "react";
 import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -56,8 +57,10 @@ const schema = yup.object().shape({
 });
 
 export default function Enquiry({ title }) {
-	let navigate = useNavigate();
+	const [submitting, setSubmitting] = useState(false);
+	const [serverError, setServerError] = useState(null);
 
+	let navigate = useNavigate();
 	const url = BASE_URL + "api/enquiries";
 
 	const {
@@ -94,6 +97,9 @@ export default function Enquiry({ title }) {
 			navigate("/hotel/enquiry");
 		} catch (error) {
 			console.log("error", error);
+			setServerError(error.toString());
+		} finally {
+			setSubmitting(false);
 		}
 	}
 
@@ -106,7 +112,9 @@ export default function Enquiry({ title }) {
 			</Row>
 
 			<Form onSubmit={handleSubmit(onSubmit)}>
-				<fieldset>
+				{serverError && <FormError>{serverError}</FormError>}
+
+				<fieldset disabled={submitting}>
 					<Form.Group className="mb-3">
 						<Form.Control
 							name="refHotelTitle"
@@ -238,7 +246,7 @@ export default function Enquiry({ title }) {
 					</Form.Group>
 
 					<Button type="submit" className="mb-2">
-						Submit
+						{submitting ? "Submitting..." : "Submit"}
 					</Button>
 				</fieldset>
 			</Form>

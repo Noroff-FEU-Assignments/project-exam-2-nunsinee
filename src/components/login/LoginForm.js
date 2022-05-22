@@ -10,6 +10,7 @@ import { useTitlePage } from "../../utils/useTitlePage";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import Heading from "../layout/Heading";
 import { BASE_URL } from "../../constants/api";
+import Loader from "../layout/Loader";
 
 const url = BASE_URL + "api/auth/local";
 
@@ -109,8 +110,13 @@ export default function LoginForm() {
 									)}
 								</Form.Group>
 								<Button variant="primary" type="submit">
-									{submitting ? "Login in..." : "Login"}
+									Login
 								</Button>
+								{submitting && (
+									<div>
+										<Loader />
+									</div>
+								)}
 							</fieldset>
 						</Form>
 					</Col>

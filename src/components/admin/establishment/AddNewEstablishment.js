@@ -13,6 +13,7 @@ import AlertMessage from "../../../utils/AlertMessage";
 import Paragraph from "../../layout/Paragraph";
 import { BASE_URL } from "../../../constants/api";
 import { useTitlePage } from "../../../utils/useTitlePage";
+import Loader from "../../layout/Loader";
 
 const schema = yup.object().shape({
 	title: yup.string().required("Title is required"),
@@ -220,7 +221,7 @@ export default function AddNewEstablishment() {
 							</Form.Label>
 							<Form.Control
 								name="price"
-								placeholder="e.g 400, 1200"
+								placeholder="Price"
 								{...register("price")}
 							/>
 							<Form.Text>
@@ -296,10 +297,14 @@ export default function AddNewEstablishment() {
 								)}
 							</Form.Text>
 						</Form.Group>
-
 						<Button type="submit" className="mt-3 mb-3">
 							Add new establishment
 						</Button>
+						{submitting && (
+							<div>
+								<Loader />
+							</div>
+						)}
 					</fieldset>
 				</Form>
 			</AdminPage>

@@ -6,9 +6,11 @@ import logo from "../../assets/logo.svg";
 
 function Navigation() {
 	const [auth, setAuth] = useContext(AuthContext);
+
 	const navigate = useNavigate();
 
 	function logout() {
+		alert("Are you sure to logout?");
 		setAuth(null);
 		navigate("/");
 	}

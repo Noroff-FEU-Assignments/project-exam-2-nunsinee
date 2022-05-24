@@ -9,7 +9,6 @@ export default function EnquiryItem({
 	email,
 	firstName,
 	lastName,
-	subject,
 	message,
 	checkInDate,
 	checkOutDate,
@@ -32,9 +31,6 @@ export default function EnquiryItem({
 			</Col>
 			<Col sm>
 				<strong>Name: </strong> {firstName}-{lastName}
-			</Col>
-			<Col sm>
-				<strong>Subject: </strong> {subject}
 			</Col>
 			<Col sm>
 				<strong>Email: </strong>

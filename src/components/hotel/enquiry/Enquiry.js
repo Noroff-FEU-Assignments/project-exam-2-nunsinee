@@ -13,10 +13,11 @@ import { useNavigate } from "react-router-dom";
 import {
 	MINIMUM_FIRST_NAME_CHARACTERS,
 	MINIMUM_LAST_NAME_CHARACTERS,
-	MINIMUM_SUBJECT_CHARACTERS,
 	MINIMUM_MESSAGE,
 	EMAIL_REGEX,
 } from "../../../constants/registration";
+import ErrorMessage from "../../common/ErrorMessage";
+import Messages from "../../common/Messages";
 
 const schema = yup.object().shape({
 	firstName: yup
@@ -35,16 +36,28 @@ const schema = yup.object().shape({
 	email: yup
 		.string("Please enter your email")
 		.matches(EMAIL_REGEX, "Your email is not valid"),
-	subject: yup
-		.string()
-		.required("Please enter subject")
+	checkInDate: yup
+		.date()
 		.min(
-			MINIMUM_SUBJECT_CHARACTERS,
-			`Your subject must be at least ${MINIMUM_SUBJECT_CHARACTERS} characters`
-		),
-	checkInDate: yup.date().nullable().typeError("Please enter Check-in date"),
+			new Date(),
+			"Please choose your Check-in date. Must be later than today"
+		)
+		.nullable()
+		.typeError("Please enter Check-in date"),
 	checkOutDate: yup
 		.date()
+		.when("checkInDate", (checkInDate, schema) => {
+			if (checkInDate) {
+				const dayAfter = new Date(checkInDate.getTime() + 86400000);
+
+				return schema.min(
+					dayAfter,
+					"Check-out date must be after Check-in date"
+				);
+			}
+
+			return schema;
+		})
 		.nullable()
 		.typeError("Please enter Check-out date"),
 	message: yup
@@ -59,6 +72,7 @@ const schema = yup.object().shape({
 export default function Enquiry({ title }) {
 	const [submitting, setSubmitting] = useState(false);
 	const [serverError, setServerError] = useState(null);
+	const [showMsg, setShowMsg] = useState(false);
 
 	let navigate = useNavigate();
 	const url = BASE_URL + "api/enquiries";
@@ -94,7 +108,11 @@ export default function Enquiry({ title }) {
 		try {
 			const response = await axios.post(url, formData);
 			console.log("response", response.data);
-			navigate("/hotel/enquiry");
+
+			setShowMsg(true);
+			setTimeout(() => {
+				navigate("/hotel");
+			}, 5000);
 		} catch (error) {
 			console.log("error", error);
 			setServerError(error.toString());
@@ -102,6 +120,28 @@ export default function Enquiry({ title }) {
 			setSubmitting(false);
 		}
 	}
+
+	if (serverError) {
+		return (
+			<ErrorMessage message="Something went wrong! Please try again later" />
+		);
+	}
+
+	if (showMsg) {
+		return (
+			<Messages>
+				Thank you for your enquiry. We will reply you as soon as
+				possible!.
+			</Messages>
+		);
+	}
+
+	//Set date value
+	var todayDate = new Date();
+
+	var dateCheckInOut = todayDate.setDate(todayDate.getDate());
+
+	var defaultValueDate = new Date(dateCheckInOut).toISOString().split("T")[0];
 
 	return (
 		<>
@@ -112,8 +152,6 @@ export default function Enquiry({ title }) {
 			</Row>
 
 			<Form onSubmit={handleSubmit(onSubmit)}>
-				{serverError && <FormError>{serverError}</FormError>}
-
 				<fieldset disabled={submitting}>
 					<Form.Group className="mb-3">
 						<Form.Control
@@ -179,6 +217,7 @@ export default function Enquiry({ title }) {
 							onChange={(e) => e.target.value}
 							className="form-control"
 							placeholder="dd-mm-yyyy"
+							defaultValue={defaultValueDate}
 							{...register("checkInDate")}
 						/>
 						<Form.Text className="text-muted">
@@ -198,6 +237,7 @@ export default function Enquiry({ title }) {
 							onChange={(e) => e.target.value}
 							className="form-control"
 							placeholder="dd-mm-yyyy"
+							defaultValue={defaultValueDate}
 							{...register("checkOutDate")}
 						/>
 						<Form.Text className="text-muted">
@@ -208,23 +248,6 @@ export default function Enquiry({ title }) {
 							)}
 						</Form.Text>
 					</Form.Group>
-
-					<Form.Group className="mb-3">
-						<Form.Label>Subject</Form.Label>
-						<Form.Control
-							name="subject"
-							placeholder="Subject"
-							{...register("subject")}
-						/>
-						<Form.Text className="text-muted">
-							Your subject must be at least &nbsp;
-							{MINIMUM_SUBJECT_CHARACTERS}&nbsp;characters.
-							{errors.subject && (
-								<FormError>{errors.subject.message}</FormError>
-							)}
-						</Form.Text>
-					</Form.Group>
-
 					<Form.Group className="mb-3">
 						<Form.Label>Message</Form.Label>
 						<Form.Control
@@ -246,7 +269,7 @@ export default function Enquiry({ title }) {
 					</Form.Group>
 
 					<Button type="submit" className="mb-2">
-						{submitting ? "Submitting..." : "Submit"}
+						submit
 					</Button>
 				</fieldset>
 			</Form>

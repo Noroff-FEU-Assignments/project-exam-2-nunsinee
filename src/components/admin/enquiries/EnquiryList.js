@@ -97,7 +97,6 @@ export default function EnquiryList() {
 											checkOutDate={
 												enquiry.attributes.checkOutDate
 											}
-											subject={enquiry.attributes.subject}
 											email={enquiry.attributes.email}
 											message={enquiry.attributes.message}
 										/>

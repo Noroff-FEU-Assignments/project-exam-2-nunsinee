@@ -14,6 +14,7 @@ import Paragraph from "../../layout/Paragraph";
 import { BASE_URL } from "../../../constants/api";
 import { useTitlePage } from "../../../utils/useTitlePage";
 import Loader from "../../layout/Loader";
+import ErrorMessage from "../../common/ErrorMessage";
 
 const schema = yup.object().shape({
 	title: yup.string().required("Title is required"),
@@ -146,7 +147,11 @@ export default function AddNewEstablishment() {
 					onSubmit={handleSubmit(onSubmit)}
 					className="form form__add"
 				>
-					{serverError && <FormError>{serverError}</FormError>}
+					{serverError && (
+						<Col>
+							<ErrorMessage message="Something went wrong, You can try again later" />
+						</Col>
+					)}
 					<fieldset disabled={submitting}>
 						<Form.Group className="mb-3">
 							<Form.Label>Title</Form.Label>

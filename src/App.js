@@ -4,10 +4,8 @@ import "./sass/style.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navigation from "./components/layout/Navigation";
 import Wrapper from "./components/layout/Wrapper";
-
 import { AuthProvider } from "./context/AuthContext";
 import AdminPage from "./components/admin/AdminPage";
-
 import HomePage from "./components/home/HomePage";
 import Hotels from "./components/hotel/Hotels";
 import Contact from "./components/contact/Contact";
@@ -17,7 +15,6 @@ import MessageList from "./components/admin/message/MessageList";
 import AddNewEstablishment from "./components/admin/establishment/AddNewEstablishment";
 import Footer from "./components/layout/Footer";
 import HotelDetailPage from "./components/hotel/HotelDetailPage";
-import ThankyouPage from "./components/hotel/enquiry/ThankyouPage";
 
 function App() {
 	return (
@@ -29,11 +26,6 @@ function App() {
 					<Routes>
 						<Route path="/" element={<HomePage />} />
 						<Route path="/hotel" element={<Hotels />} />
-						<Route
-							path="/hotel/enquiry/"
-							element={<ThankyouPage />}
-						/>
-
 						<Route path="/contact" element={<Contact />} />
 						<Route path="/login" element={<LoginForm />} />
 						<Route path="/admin" element={<AdminPage />} />

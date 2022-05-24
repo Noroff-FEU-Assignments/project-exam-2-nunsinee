@@ -4,9 +4,13 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
-import { Form, Button, Alert } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import { BASE_URL } from "../../constants/api";
 import FormError from "../common/FormError";
+
+import ErrorMessage from "../common/ErrorMessage";
+import Messages from "../common/Messages";
+import { useNavigate } from "react-router-dom";
 
 import {
 	MINIMUM_NAME_CHARACTERS,
@@ -28,7 +32,7 @@ const schema = yup.object().shape({
 		.required("Please enter your subject")
 		.min(
 			MINIMUM_SUBJECT_CHARACTERS,
-			`Your subject must be at least ${MINIMUM_SUBJECT_CHARACTERS} characters`
+			`Subject is required! Must be at least ${MINIMUM_SUBJECT_CHARACTERS} characters`
 		),
 	email: yup
 		.string("Please enter your email")
@@ -37,19 +41,22 @@ const schema = yup.object().shape({
 		.string("Please enter your message here")
 		.min(
 			MINIMUM_MESSAGE,
-			`Your message must be at least ${MINIMUM_MESSAGE} characters`
+			`Your message is required! Must be at least ${MINIMUM_MESSAGE} characters`
 		),
 });
 
 export default function ContactForm() {
 	const [submitted, setSubmitted] = useState(false);
+	const [serverError, setServerError] = useState(null);
+	const [showMsg, setShowMsg] = useState(false);
 	const url = BASE_URL + "api/contacts";
+
+	let navigate = useNavigate();
 
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
-		reset,
 	} = useForm({ resolver: yupResolver(schema) });
 
 	async function onSubmit(data) {
@@ -65,15 +72,35 @@ export default function ContactForm() {
 		};
 
 		formData.append("data", JSON.stringify(inputData));
-		setSubmitted(true);
 
 		try {
 			const response = await axios.post(url, formData);
 			console.log("response", response.data);
-			reset();
+			setShowMsg(true);
+			setTimeout(() => {
+				navigate("/");
+			}, 5000);
 		} catch (error) {
 			console.log("error", error);
+			setServerError(error.toString());
+		} finally {
+			setSubmitted(false);
 		}
+	}
+
+	if (serverError) {
+		return (
+			<ErrorMessage message="Something went wrong! Please try again later" />
+		);
+	}
+
+	if (showMsg) {
+		return (
+			<Messages>
+				Thank you for your contact.We will reply you as soon as
+				possible.
+			</Messages>
+		);
 	}
 
 	return (
@@ -82,13 +109,7 @@ export default function ContactForm() {
 				onSubmit={handleSubmit(onSubmit)}
 				className="form form__contact"
 			>
-				{submitted && (
-					<Alert variant="success alert__contact">
-						Thank you for contacting us. We will reply you as soon
-						as possible!.
-					</Alert>
-				)}
-				<fieldset>
+				<fieldset disabled={submitted}>
 					<Form.Group className="mb-3">
 						<Form.Label>Name</Form.Label>
 						<Form.Control

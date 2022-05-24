@@ -1,8 +1,26 @@
 import PropTypes from "prop-types";
-import { Alert } from "react-bootstrap";
+import { Alert, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { HiHome } from "react-icons/hi";
 
 export default function ErrorMessage({ message }) {
-	return <Alert variant="danger">{message}</Alert>;
+	return (
+		<>
+			<Row>
+				<Col sm={12}>
+					<Alert variant="danger" className="alert-danger--error">
+						{message}
+					</Alert>
+				</Col>
+				<Col sm={12} className="text-center">
+					<Link to="/">
+						<HiHome />
+						Back to Home
+					</Link>
+				</Col>
+			</Row>
+		</>
+	);
 }
 
 ErrorMessage.propTypes = {
@@ -10,5 +28,5 @@ ErrorMessage.propTypes = {
 };
 
 ErrorMessage.defaultProps = {
-	message: "An error occurred",
+	message: "Something went wrong! Please try again later",
 };

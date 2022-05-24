@@ -10,7 +10,7 @@ function Navigation() {
 	const navigate = useNavigate();
 
 	function logout() {
-		alert("Are you sure to logout?");
+		window.confirm("Are you sure to logout?");
 		setAuth(null);
 		navigate("/");
 	}

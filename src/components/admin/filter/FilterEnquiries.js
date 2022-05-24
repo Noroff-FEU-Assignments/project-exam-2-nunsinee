@@ -4,6 +4,7 @@ import { BASE_URL } from "../../../constants/api";
 import { Row, Col, Form } from "react-bootstrap";
 import axios from "axios";
 import { GoSearch } from "react-icons/go";
+// import { Link } from "react-router-dom";
 import EnquiryItem from "../enquiries/EnquiryItem";
 
 export default function FilterEnquiries() {
@@ -75,7 +76,11 @@ export default function FilterEnquiries() {
 											)
 										}
 									>
-										<Col lg={12} key={guide.id}>
+										<Col
+											xs={12}
+											key={guide.id}
+											className="filter__container"
+										>
 											<EnquiryItem
 												key={guide.id}
 												id={guide.id}

@@ -101,12 +101,8 @@ export default function AddNewEstablishment() {
 
 		for (let i = 0; i < 2; i++) {
 			const filemulti = data.roomImage[i];
-			formData.append(`files.roomImage`, filemulti, filemulti.name);
+			formData.append(`files.roomImage`, filemulti);
 		}
-		const filemulti = data.roomImage[0];
-
-		console.log(file);
-		console.log(filemulti);
 
 		const inputData = {
 			title: data.title,

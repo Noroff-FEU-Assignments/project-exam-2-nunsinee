@@ -13,17 +13,18 @@
 	}
 
 	&__suggest {
-		&:nth-child(even) {
-			background: getColour(vivid);
-		}
-		background: getColour(queen-blue);
+		background: getColour(bright-grey);
+		border: 1px solid getColour(nav-colour);
 		padding: 0.25em 1em;
-		width: fit-content;
 		cursor: pointer;
-		border-radius: $border-radius;
 		align-items: center;
-		& a {
-			color: getColour(white);
+		&:hover {
+			background: getColour(nav-colour);
+		}
+	}
+	&__noresult {
+		& h6 {
+			color: (getColour(vivid));
 		}
 	}
 }

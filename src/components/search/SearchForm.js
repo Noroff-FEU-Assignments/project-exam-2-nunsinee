@@ -10,6 +10,7 @@ export default function SearchForm() {
 	const [hotels, setHotels] = useState([]);
 	const [text, setText] = useState("");
 	const [guidence, setGuidence] = useState([]);
+
 	const http = BASE_URL + "api/hotels";
 
 	useEffect(() => {
@@ -67,7 +68,6 @@ export default function SearchForm() {
 								guidence.map((guide, index) => (
 									<div
 										key={index}
-										className=" search search__suggest "
 										onClick={() =>
 											guidenceHandle(
 												guide.attributes.title
@@ -75,7 +75,9 @@ export default function SearchForm() {
 										}
 									>
 										<Link to={`detail/${guide.id}`}>
-											{guide.attributes.title}
+											<div className=" search search__suggest ">
+												{guide.attributes.title}
+											</div>
 										</Link>
 									</div>
 								))}

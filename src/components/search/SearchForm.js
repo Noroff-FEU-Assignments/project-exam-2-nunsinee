@@ -62,27 +62,22 @@ export default function SearchForm() {
 								onChange={(e) => onChangeHandle(e.target.value)}
 								value={text}
 								className="search search__input"
-								onBlur={() => {
-									setTimeout(() => {
-										setGuidence([]);
-									}, 100);
-								}}
 							/>
 							{guidence &&
 								guidence.map((guide, index) => (
-									<Link to={`detail/${guide.id}`}>
-										<div
-											key={index}
-											className=" search search__suggest "
-											onClick={() =>
-												guidenceHandle(
-													guide.attributes.title
-												)
-											}
-										>
+									<div
+										key={index}
+										className=" search search__suggest "
+										onClick={() =>
+											guidenceHandle(
+												guide.attributes.title
+											)
+										}
+									>
+										<Link to={`detail/${guide.id}`}>
 											{guide.attributes.title}
-										</div>
-									</Link>
+										</Link>
+									</div>
 								))}
 						</div>
 					</Col>

@@ -14,12 +14,17 @@
 
 	&__suggest {
 		&:nth-child(even) {
-			background: getColour(white);
+			background: getColour(vivid);
 		}
-		background: getColour(nav-colour);
+		background: getColour(queen-blue);
 		padding: 0.25em 1em;
-		border-bottom: 1px solid rgba(getColour(copy), 0.5);
+		width: fit-content;
 		cursor: pointer;
+		border-radius: $border-radius;
+		align-items: center;
+		& a {
+			color: getColour(white);
+		}
 	}
 }
 

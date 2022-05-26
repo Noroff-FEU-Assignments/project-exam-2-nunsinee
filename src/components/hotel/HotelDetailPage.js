@@ -60,7 +60,15 @@ export default function HotelDetailPage() {
 	}
 
 	if (error) {
-		return <ErrorMessage message={`Error:${error}`} />;
+		return (
+			<Container>
+				<Row>
+					<Col xs={12} className="mt-5 text-center">
+						<ErrorMessage message="We are sorry something went wrong!" />
+					</Col>
+				</Row>
+			</Container>
+		);
 	}
 
 	const handleShowEnquiry = () => setShow(true);

@@ -14,6 +14,7 @@ export default function FilterEnquiries() {
 	const [guidence, setGuidence] = useState([]);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(false);
+	const [resFound, setResFound] = useState(true);
 
 	const http = BASE_URL + "api/enquiries";
 
@@ -54,10 +55,24 @@ export default function FilterEnquiries() {
 				const regex = new RegExp(`${text}`, "gi");
 				return enquiry.attributes.refHotelTitle.match(regex);
 			});
+
+			setResFound(matches.length !== 0 ? true : false);
 		}
 
 		setGuidence(matches);
 		setText(text);
+	};
+
+	const NoFoundResult = (text) => {
+		if (text !== "" && !resFound) {
+			return (
+				<div className=" search search__suggest search__suggest--nofound">
+					<h6 style={{ color: "darkblue", fontWeight: "bold" }}>
+						Sorry, This hotel name is not on our hotel list!
+					</h6>
+				</div>
+			);
+		}
 	};
 
 	return (
@@ -133,6 +148,8 @@ export default function FilterEnquiries() {
 										</Col>
 									</div>
 								))}
+
+							{<NoFoundResult />}
 						</div>
 					</Col>
 				</Form.Group>

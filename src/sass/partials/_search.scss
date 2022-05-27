@@ -21,10 +21,9 @@
 		&:hover {
 			background: getColour(nav-colour);
 		}
-	}
-	&__noresult {
-		& h6 {
-			color: (getColour(vivid));
+		&--nofound {
+			cursor: none;
+			padding: 0 1em;
 		}
 	}
 }

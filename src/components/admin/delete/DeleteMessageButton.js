@@ -24,6 +24,7 @@ export default function DeleteMessageButton({ id }) {
 				navigate("/admin/message");
 			} catch (error) {
 				setError(error);
+				console.log(error);
 			}
 		}
 	}

@@ -23,6 +23,7 @@ export default function DeleteEnquiryButton({ id }) {
 				window.location.reload(false);
 				navigate("/admin/enquiries");
 			} catch (error) {
+				console.log(error);
 				setError(error);
 			}
 		}

@@ -5,22 +5,35 @@ import { BASE_URL } from "../../constants/api";
 import { Row, Col, Form } from "react-bootstrap";
 import axios from "axios";
 import { GoSearch } from "react-icons/go";
+import ErrorMessage from "../common/ErrorMessage";
 
 export default function SearchForm() {
 	const [hotels, setHotels] = useState([]);
 	const [text, setText] = useState("");
 	const [guidence, setGuidence] = useState([]);
+	const [error, setError] = useState(null);
+	const [resFound, setResFound] = useState(true); //22
 
 	const http = BASE_URL + "api/hotels";
 
 	useEffect(() => {
 		const loadHotels = async () => {
-			const response = await axios.get(http);
-			setHotels(response.data.data);
+			try {
+				const response = await axios.get(http);
+				setHotels(response.data.data);
+			} catch (error) {
+				console.log(error);
+				setError(error.toString());
+			} finally {
+			}
 		};
 		loadHotels();
 		//eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
+
+	if (error) {
+		return <ErrorMessage message=" Sorry, there is something went wrong" />;
+	}
 
 	const guidenceHandle = (text) => {
 		setText(text);
@@ -35,10 +48,25 @@ export default function SearchForm() {
 				const regex = new RegExp(`${text}`, "gi");
 				return hotel.attributes.title.match(regex);
 			});
+			setResFound(matches.length !== 0 ? true : false);
 		}
+
+		console.log("matches", matches);
 
 		setGuidence(matches);
 		setText(text);
+	};
+
+	const NoFoundResult = (text) => {
+		if (text !== "" && !resFound) {
+			return (
+				<div className=" search search__suggest search__suggest--nofound">
+					<h6 style={{ color: "darkblue", fontWeight: "bold" }}>
+						Sorry, This hotel name is not on our hotel list!
+					</h6>
+				</div>
+			);
+		}
 	};
 
 	return (
@@ -81,6 +109,8 @@ export default function SearchForm() {
 										</Link>
 									</div>
 								))}
+
+							{<NoFoundResult />}
 						</div>
 					</Col>
 				</Form.Group>

@@ -6,13 +6,15 @@ import { Row, Col, Form } from "react-bootstrap";
 import axios from "axios";
 import { GoSearch } from "react-icons/go";
 import ErrorMessage from "../common/ErrorMessage";
+import Loader from "../layout/Loader";
 
 export default function SearchForm() {
 	const [hotels, setHotels] = useState([]);
 	const [text, setText] = useState("");
 	const [guidence, setGuidence] = useState([]);
 	const [error, setError] = useState(null);
-	const [resFound, setResFound] = useState(true); //22
+	const [resFound, setResFound] = useState(true);
+	const [loading, setLoading] = useState(false);
 
 	const http = BASE_URL + "api/hotels";
 
@@ -25,6 +27,7 @@ export default function SearchForm() {
 				console.log(error);
 				setError(error.toString());
 			} finally {
+				setLoading(false);
 			}
 		};
 		loadHotels();
@@ -33,6 +36,10 @@ export default function SearchForm() {
 
 	if (error) {
 		return <ErrorMessage message=" Sorry, there is something went wrong" />;
+	}
+
+	if (loading) {
+		return <Loader />;
 	}
 
 	const guidenceHandle = (text) => {

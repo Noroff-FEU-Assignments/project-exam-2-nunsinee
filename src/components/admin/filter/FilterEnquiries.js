@@ -4,24 +4,42 @@ import { BASE_URL } from "../../../constants/api";
 import { Row, Col, Form } from "react-bootstrap";
 import axios from "axios";
 import { GoSearch } from "react-icons/go";
-// import { Link } from "react-router-dom";
 import EnquiryItem from "../enquiries/EnquiryItem";
+import Loader from "../../layout/Loader";
+import ErrorMessage from "../../common/ErrorMessage";
 
 export default function FilterEnquiries() {
 	const [enquiries, setEnquiries] = useState([]);
 	const [text, setText] = useState("");
 	const [guidence, setGuidence] = useState([]);
+	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState(false);
 
 	const http = BASE_URL + "api/enquiries";
 
 	useEffect(() => {
 		const loadEnquiries = async () => {
-			const response = await axios.get(http);
-			setEnquiries(response.data.data);
+			try {
+				const response = await axios.get(http);
+				setEnquiries(response.data.data);
+			} catch (error) {
+				console.log(error);
+				setError(error.toString());
+			} finally {
+				setLoading(false);
+			}
 		};
 		loadEnquiries();
 		//eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
+
+	if (loading) {
+		return <Loader />;
+	}
+
+	if (error) {
+		return <ErrorMessage message=" We are sory, something went wrong!" />;
+	}
 
 	const guidenceHandle = (text) => {
 		setText(text);

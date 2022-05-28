@@ -9,7 +9,6 @@ import axios from "axios";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import AdminPage from "../AdminPage";
 import Heading from "../../layout/Heading";
-import AlertMessage from "../../../utils/AlertMessage";
 import Paragraph from "../../layout/Paragraph";
 import { BASE_URL } from "../../../constants/api";
 import { useTitlePage } from "../../../utils/useTitlePage";
@@ -88,14 +87,6 @@ export default function AddNewEstablishment() {
 		setSubmitting(true);
 
 		const formData = new FormData();
-
-		if (data.featuredImage.length === 0) {
-			return <AlertMessage message="Select an image" />;
-		}
-
-		if (data.roomImage.length === 0) {
-			return <AlertMessage message="Select an image" />;
-		}
 
 		const file = data.featuredImage[0];
 

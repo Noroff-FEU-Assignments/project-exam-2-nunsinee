@@ -1,3 +1,33 @@
+# Project Exam 2: Holidaze Hotel Booking
+
+Project Exam 2 is a Hotel Booking made with React, React-Bootstrap and SASS.
+Holidaze website is A local tourism agency in Bergen for visitors who find hotels, B&Bs and guesthouses, and
+for the accommodation owners to receive enquiries.
+
+![image](./src/assets/screenshot_holidaze.png)
+
+## Description
+
+Website consists of visitor section and admin sections. Visitor can search hotel from search by hotel name and
+make en enquiry from Hotel detail page, Visitor/user can send contact from contact form. Admin side for hotel owner,
+They can add their new establishment and checking enquiries and contact messagesfrom visitor/customer.
+
+Website using data from Stapi API and has built own Strapi Api to apply with it.
+
+### Customer-facing section:
+
+-   Homepage : Display a carousel of hotel and features hotel, search bar autodropdown list by hotel name.
+-   Hotels : Display a list of all Hotels
+-   Detail Page: Display detail of each hotel and has enquiry button link to enquiry page.
+-   Contact page: Where visitor can send a message to Holidaze Bergen directly.
+
+### Admin section:
+
+-   Login form
+-   Add new establishment
+-   Enquiries List: Show all enquiry when visitor filled in enquiry from in enquiry page.
+-   Messages List: Show all messages when visitor filled in contact from in contact page.
+
 # Access to Admin Panel on Login Pages
 
 username : webbymim@gmail.com
@@ -9,73 +39,47 @@ Link:https://exam-project-api.herokuapp.com/admin/auth/login
 username : webbymim@gmail.com
 password:Exam2023
 
-# Getting Started with Create React App
+## Built With
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+-   [React.js](https://reactjs.org/)
+-   [React-Bootstrap](https://react-bootstrap.github.io/)
+-   [SASS](https://sass-lang.com/)
 
-## Available Scripts
+### Installing
 
-In the project directory, you can run:
+1. Clone the repo:
 
-### `npm start`
+```bash
+git clone https://github.com/Noroff-FEU-Assignments/project-exam-2-nunsinee.git
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. Install the dependencies:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+npm install
+```
 
-### `npm test`
+### Package Dependencies
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-   "@hookform/resolvers": "^2.8.8",
+-   "@testing-library/jest-dom": "^5.16.4",
+-   "@testing-library/react": "^13.1.1",
+-   "@testing-library/user-event": "^13.5.0",
+-   "axios": "^0.26.1",
+-   "bootstrap": "^5.1.3",
+-   "node-sass": "^7.0.1",
+-   "react": "^18.0.0",
+-   "react-bootstrap": "^2.3.0",
+-   "react-dom": "^18.0.0",
+-   "react-hook-form": "^7.30.0",
+-   "react-icons": "^4.3.1",
+-   "react-router-dom": "^6.3.0",
+-   "react-scripts": "5.0.1",
+-   "react-slick": "^0.29.0",
+-   "slick-carousel": "^1.8.1",
+-   "web-vitals": "^2.1.4",
+-   "yup": "^0.32.11"
 
-### `npm run build`
+### Release
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Review Project Exam 2](https://nv-exam-project-2.netlify.app/s)

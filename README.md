@@ -80,6 +80,6 @@ npm install
 -   "web-vitals": "^2.1.4",
 -   "yup": "^0.32.11"
 
-### Release
+### Live Website
 
 [Review Project Exam 2](https://nv-exam-project-2.netlify.app/s)
